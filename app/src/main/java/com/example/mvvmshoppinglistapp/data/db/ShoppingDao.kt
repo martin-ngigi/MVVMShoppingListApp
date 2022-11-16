@@ -1,11 +1,11 @@
-package com.example.mvvmshoppinglistapp.dao
+package com.example.mvvmshoppinglistapp.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.mvvmshoppinglistapp.models.ShoppingItem
+import com.example.mvvmshoppinglistapp.data.db.enties.ShoppingItem
 
 interface ShoppingDao {
 

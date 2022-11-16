@@ -1,16 +1,16 @@
-package com.example.mvvmshoppinglistapp.databases
+package com.example.mvvmshoppinglistapp.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.mvvmshoppinglistapp.models.ShoppingItem
+import com.example.mvvmshoppinglistapp.data.db.enties.ShoppingItem
 
 @Database(entities = [ShoppingItem::class], version = 1)
 
 abstract class ShoppingDatabase: RoomDatabase() {
 
-    abstract fun getShoppingDao(): ShoppingItem
+    abstract fun getShoppingDao(): ShoppingDao
 
     companion object{
         @Volatile //thread safe
@@ -20,8 +20,8 @@ abstract class ShoppingDatabase: RoomDatabase() {
         private var LOCK = Any()
 
         //synchronized() means that no other threads will access that instance
-        operator fun invoke(context: Context) = instance?: synchronized(LOCK){
-            instance?: createDatabase(context).also { instance=it }
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
+            instance ?: createDatabase(context).also { instance =it }
         }
 
         private fun createDatabase(context: Context) =
