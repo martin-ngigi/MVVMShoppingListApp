@@ -47,28 +47,28 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
 
-    def room_version = "2.2.1"
+    def room_version = "2.4.3"
     def kodein_version = "6.4.0"
     def lifecycle_version = "2.0.0"
 
     // Room and Architectural Components
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
-    implementation "androidx.room:room-ktx:2.2.1"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation "androidx.room:room-ktx:2.4.3"
     kapt "androidx.room:room-compiler:$room_version"
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     // New Material Design
-    implementation "com.google.android.material:material:1.0.0"
+    implementation "com.google.android.material:material:1.7.0"
 
     // ViewModel
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version" //duplicate
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version" //duplicate
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // Kodein

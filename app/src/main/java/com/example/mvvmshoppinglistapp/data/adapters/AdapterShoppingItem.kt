@@ -28,7 +28,7 @@ class AdapterShoppingItem (
         holder.itemView.tv_amount.text = "${currentShoppingItem.amount}"
 
         //handle on click listener
-        holder.itemView.iv_add.setOnClickListener{
+        holder.itemView.iv_delete.setOnClickListener{
             viewModel.delete(currentShoppingItem)
         }
 
@@ -39,7 +39,7 @@ class AdapterShoppingItem (
         }
 
         //handle on click listener
-        holder.itemView.iv_delete.setOnClickListener{
+        holder.itemView.iv_minus.setOnClickListener{
             currentShoppingItem.amount -- //decrease by 1
             viewModel.upsert(currentShoppingItem)
         }
@@ -47,7 +47,7 @@ class AdapterShoppingItem (
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return items.size
     }
     inner class ShoppingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
