@@ -11,17 +11,21 @@ import com.example.mvvmshoppinglistapp.data.db.ShoppingDatabase
 import com.example.mvvmshoppinglistapp.data.db.enties.ShoppingItem
 import com.example.mvvmshoppinglistapp.data.repositories.ShoppingRepository
 import kotlinx.android.synthetic.main.activity_shopping.*
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
+import org.kodein.di.android.kodein
 
-class ShoppingActivity : AppCompatActivity() {
+class ShoppingActivity : AppCompatActivity(), KodeinAware {
+
+    override val kodein by  kodein()
+    private val factory: ShoppingViewModelFactory by instance()
+    lateinit var viewModel: ShoppingViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
 
-        val database = ShoppingDatabase(this)
-        val repository = ShoppingRepository(database)
-        val factory = ShoppingViewModelFactory(repository)
-
-        val viewModel = ViewModelProviders.of(this, factory).get(ShoppingViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(ShoppingViewModel::class.java)
 
         val adapter = AdapterShoppingItem(listOf(), viewModel)
 
